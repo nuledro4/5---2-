@@ -1,2 +1,5 @@
 DEBUG = True
 HOST_IP = "0.0.0.0"
+PORT = 5005
+
+FIRST_DAY_WEEK = 0
