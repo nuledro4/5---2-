@@ -13,6 +13,7 @@ def create_app(config_overrides: Optional[Dict] = None) -> Flask:
     app.add_url_rule("/", "index_page", index_page)
     app.add_url_rule("/calendar/", "calendar_page", calendar_page)
     app.add_url_rule("/calendar/month/", "calendar_month_page", calendar_month_page)
+    app.add_url_rule("/calendar/month/<year>/<month>/", "calendar_month_page", calendar_month_page, methods=["GET"])
     app.add_url_rule("/calendar/week/", "calendar_week_page", calendar_week_page)
     app.add_url_rule("/calendar/day/", "calendar_day_page", calendar_day_page)
 
