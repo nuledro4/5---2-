@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/calendar.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/calendar_month.css') }}" />
 </head>
 <body>
@@ -23,6 +24,15 @@
         {% if month != current_month or year != current_year %}
             <button title="{{ current_day }} {{ current_month_name }} {{ current_year }} " onclick="window.location='/calendar/month/'">Сегодня</button>
         {% endif %}
+
+        <div class="select_calendar">
+            <select name="select_calendar" id="select_calendar">
+              <option value="day">День</option>
+              <option value="week">Неделя</option>
+              <option value="month" selected>Месяц</option>
+            </select>
+        </div>
+
     </div>
 
     <ul class="calendar-header">
@@ -57,3 +67,5 @@
 
 </body>
 </html>
+
+<script src="{{ url_for('static', filename='js/select_calendar.js') }}"></script>

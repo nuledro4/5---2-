@@ -17,6 +17,7 @@ def create_app(config_overrides: Optional[Dict] = None) -> Flask:
     app.add_url_rule("/calendar/week/", "calendar_week_page", calendar_week_page)
     app.add_url_rule("/calendar/week/<year>/<month>/<week>/", "calendar_week_page", calendar_week_page)
     app.add_url_rule("/calendar/day/", "calendar_day_page", calendar_day_page)
+    app.add_url_rule("/calendar/day/<year>/<month>/<day>/", "calendar_day_page", calendar_day_page)
 
     return app
 

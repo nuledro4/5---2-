@@ -47,6 +47,10 @@ class GregorianCalendar:
         return calendar.weekday(year, month, day)
 
     @staticmethod
+    def num_weekdays(year: int, month: int, day: int) -> int:
+        return GregorianCalendar.num_weekday(year, month, day)
+
+    @staticmethod
     def num_week_in_month_by_date(year: int, month: int, day: int) -> int:
         # Определяем номер дня недели на первое число текущего месяца
         num_week_first_day_current_month = GregorianCalendar.num_weekday(year, month, 1)

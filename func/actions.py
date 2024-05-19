@@ -1,6 +1,7 @@
 from flask import render_template, make_response, current_app, request
 from cls.gregorian_calendar import GregorianCalendar
-from func.calendar_func import prev_month_link, next_month_link, previous_week_link, next_week_link
+from func.calendar_func import prev_month_link, next_month_link, previous_week_link, next_week_link, prev_day_link, \
+    next_day_link
 
 
 def index_page() -> make_response:
@@ -87,5 +88,35 @@ def calendar_week_page(year=None, month=None, week=None) -> make_response:
     )
 
 
-def calendar_day_page() -> make_response:
-    return make_response(render_template("calendar_day.html"))
+def calendar_day_page(year=None, month=None, day=None) -> make_response:
+    GregorianCalendar.setfirstweekday(current_app.config["FIRST_DAY_WEEK"])
+
+    current_day, current_month, current_year = GregorianCalendar.current_date()
+
+    if (year is None) and (month is None):
+        year = current_year
+        month = current_month
+        day = current_day
+    else:
+        year = int(year)
+        month = int(month)
+        day = int(day)
+
+    weekday_name = current_app.config["WEEK_DAYS"][GregorianCalendar.num_weekdays(year, month, day)]
+
+    month_name = GregorianCalendar.MONTH_NAMES[month - 1]
+
+    return make_response(render_template(
+            "calendar_day.html",
+            day=day,
+            weekday_name=weekday_name,
+            month=month,
+            year=year,
+            month_name=month_name,
+            current_day=current_day,
+            current_month=current_month,
+            current_year=current_year,
+            previous_day_link=prev_day_link(year, month, day),
+            next_day_link=next_day_link(year, month, day)
+        )
+    )

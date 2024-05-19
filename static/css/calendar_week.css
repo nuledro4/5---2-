@@ -28,7 +28,7 @@
   border-bottom: 0px;
 }
 
-.weekday-header .weekday-curent {
+.weekday-curent {
   color: rgb(26,115,232);
 }
 
@@ -83,13 +83,4 @@ span.daynum {
     font-weight: 400;
     color: #666;
     padding: 3px;
-}
-
-
-.header {
-    display: inline;
-}
-
-.header .current-date {
-    display: inline;
 }
