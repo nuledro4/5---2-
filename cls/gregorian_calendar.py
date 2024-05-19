@@ -1,4 +1,4 @@
-import calendar
+import calendar, math
 from datetime import datetime, date, timedelta
 from typing import Tuple, Iterable
 
@@ -41,3 +41,22 @@ class GregorianCalendar:
         last_day_of_month = calendar.monthrange(year, month)[1]
         next_month_date = date(year, month, last_day_of_month) + timedelta(days=2)
         return next_month_date.month, next_month_date.year
+
+    @staticmethod
+    def num_weekday(year: int, month: int, day: int) -> int:
+        return calendar.weekday(year, month, day)
+
+    @staticmethod
+    def num_week_in_month_by_date(year: int, month: int, day: int) -> int:
+        # Определяем номер дня недели на первое число текущего месяца
+        num_week_first_day_current_month = GregorianCalendar.num_weekday(year, month, 1)
+
+        # Определяем номер недели в месяце по дате
+        num_week_in_month_by_date = math.ceil((num_week_first_day_current_month + day) / 7) - 1
+
+        return num_week_in_month_by_date
+
+    @staticmethod
+    def week_days(year, month, week) -> Iterable[date]:
+        return calendar.Calendar(calendar.firstweekday()).monthdatescalendar(year, month)[week]
+
