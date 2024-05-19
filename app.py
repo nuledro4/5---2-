@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from flask import redirect, url_for
+from flask import redirect, url_for, make_response
 from flask import render_template_string
 from User_class import User
 from flask import session
@@ -72,8 +72,10 @@ def login():
         try:
             res = user.login()
             if res != SearchExeption and res:
-                return redirect("/")
-            elif user.login() == SearchExeption:
+                resp = make_response(render_template('test.html'))
+                resp.set_cookie('is_logined', 'True', 60*60*24)
+                return resp
+            elif res == SearchExeption:
                 return "Произошла ошибка"
             else:
                 return "Неверный логин или пароль"
@@ -82,6 +84,12 @@ def login():
     else:
         return render_template("login.html")
 
+@app.route("/checkForLogin", methods=["GET", "POST"])
+def is_Logined():
+    if not request.cookies.get('is_logined'):
+        return "You aren't logined."
+    else:
+        return "You are logined."
 
 if __name__ == "__main__":
     app.secret_key = b"9245a0065e066c7b07198c8e762ffda1278ead01b47adfc605eeb159fc9e9602"

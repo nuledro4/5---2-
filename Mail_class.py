@@ -19,7 +19,7 @@ class Mail:
         msg = MIMEText(f"{message_text}", "plain", "utf-8")
         msg["Subject"] = Header(header_text, "utf-8")
         msg["From"] = login
-        msg["To"] = ", ".join(self.user_mail)
+        msg["To"] = self.user_mail
 
         s = smtplib.SMTP("smtp.yandex.ru", 587, timeout=10)
         is_sent = True

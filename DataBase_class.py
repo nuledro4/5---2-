@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template
 from flask import render_template_string
-from flask_sqlalchemy import SQLAlchemy
 from Exceptions import SearchExeption
 from app import app
 import sqlite3
@@ -35,12 +34,12 @@ class DataBase:
         res = self._checkForLog(user)
         if res != SearchExeption and res:
             try:
-                self._cursor.execute(
+                """ self._cursor.execute(
                     "UPDATE userInfo SET is_logined = True WHERE username = ? OR mail = ?",
                     (f"{user.name}", f"{user.mail}"),
                 )
                 self._connection.commit()
-                self._connection.close()
+                self._connection.close() """
                 return True
             except:
                 print("При авторизации произошла ошибка")
