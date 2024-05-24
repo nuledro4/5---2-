@@ -37,6 +37,10 @@ class GregorianCalendar:
         return previous_month_date.month, previous_month_date.year
 
     @staticmethod
+    def monthrange(year: int, month: int) -> Tuple[int, int]:
+        return calendar.monthrange(year, month)
+
+    @staticmethod
     def next_month_and_year(year: int, month: int) -> Tuple[int, int]:
         last_day_of_month = calendar.monthrange(year, month)[1]
         next_month_date = date(year, month, last_day_of_month) + timedelta(days=2)
@@ -61,6 +65,9 @@ class GregorianCalendar:
         return num_week_in_month_by_date
 
     @staticmethod
+    def count_weeks(year: int, month: int) -> int:
+        return len(calendar.Calendar(calendar.firstweekday()).monthdatescalendar(year, month))
+
+    @staticmethod
     def week_days(year, month, week) -> Iterable[date]:
         return calendar.Calendar(calendar.firstweekday()).monthdatescalendar(year, month)[week]
-
