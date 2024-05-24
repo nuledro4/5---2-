@@ -54,7 +54,7 @@
             <li class="row justify-content-around">
                 <span class="fw-light col-2 p-3 border bg-light"> {{ day }}-{{ month }}-{{ year }} {{ num_hour }}:00 </span>
                 <br>
-                <button class="fw-light col-10 text-truncate p-3 border bg-light" type="submit" name="smit" onclick="window.location='/calendar/event/{{year}}/{{month}}/{{day}}/{{event[2]}}'">{{event[0]}}</button>
+                <button class="fw-light col-10 text-truncate p-3 border bg-light" type="submit" name="smit" onclick="window.location='/calendar/event/{{year}}/{{month}}/{{day}}/{{event[2]}}/{{event[3]}}'">{{event[0]}}</button>
             </li>
         {%else%}
             <li class="row">
