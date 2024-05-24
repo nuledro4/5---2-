@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="">
 <head>
     <meta charset="UTF-8">
     <title>Событие</title>
@@ -31,24 +31,25 @@
         </div>
     </div>
 </nav>
-<div class="container d-flex align-items-center justify-content-center col-lg-6 mx-auto" style="min-height: 100vh;">
-    <div class="card w-100" style="max-width: 485px;">
-        <div class="card-body">
-            <form>
-                <div class="mb-3">
-                    <legend>Cобытие</legend>
-                    <label for="title" class="form-label">Заголовок:</label><br>
-                    <input type="text" id="title" name="title" value={{event0}}><br>
-                    <label for="description">Описание:</label><br>
-                    <textarea id="description" name="description" rows="4" cols="50">{{event1}}</textarea><br><br>
-                    <label for="date">Дата:</label><br>
-                    <input type="date" name="calendar" value="{{year}}-{{month}}-{{day}}"><br>
-                    <label for="time">Время:</label><br>
-                    < <input type="time" id="appt" name="appt" min="00:00" max="24:00" value="{{time}}:00"><br>
-                    <small>Минуты не учитываются</small><br><br>
-                    <button type="submit" name="submit" value="save" class="btn btn-primary sm">Сохранить</button>
-                </div>
+<div class="container text-left my-5 ">
+    <div class="row">
+        <div class="col-lg-6 mx-auto">
+            <h1>Событие</h1>
+            <form method="post">
+                <label for="title">Название:</label><br>
+                <input class="form-control" type="text" id="title" name="title" value={{event[0]}} placeholder="Напишите название"><br>
+                <label for="description">Описание:</label><br>
+                <textarea class="form-control form-control-lg" id="description" name="description" rows="4" cols="50"
+                          placeholder="Напишите текст">{{event[1]}}</textarea><br>
+                <label for="date">Дата:</label><br>
+                <input class="form-control" type="date" name="calendar" value="{{year}}-{{month}}-{{day}}">
+                <label for="time">Время:</label><br>
+                <input class="form-control" type="time" id="appt" name="appt" min="00:00" max="24:00"
+                       value="{{ time }}:00"/>
+                <small>Минуты не учитываются</small><br><br>
+                <button type="submit" name="submit" value="save" class="btn btn-primary">Сохранить</button>
             </form>
+            <br>
             <form method="post">
                 <button type="submit" name="submit" value="delete" class="btn btn-outline-danger">Удалить событие
                 </button>
@@ -56,6 +57,5 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>
