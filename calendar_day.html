@@ -17,7 +17,7 @@
     <div class="container-fluid px-4">
         <h1 class="bg-light ">Календарь на день</h1>
 
-        <div class="row justify-content-between">
+        <div class="row justify-content-between p-2 border border-light">
 
             <h4 class="col-4 fw-light">
                 {{ day }} {{ month_name }} {{ year }}, {{ weekday_name }}
@@ -71,3 +71,4 @@
 </html>
 
 <script src="{{ url_for('static', filename='js/select_calendar.js') }}"></script>
+
