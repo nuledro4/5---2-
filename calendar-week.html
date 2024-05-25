@@ -12,7 +12,7 @@
 
 </head>
 <body class="bg-light">
-    <div class="container-fluid px-4">
+    <div class="container-fluid px-3">
         <h1 class="bg-light ">Календарь на неделю</h1>
 
         <div class="row justify-content-between">
@@ -28,9 +28,9 @@
 
         </div>
 
-        <div class="row justify-content-between px-4">
+        <div class="row justify-content-between p-2 border border-light">
             {% if day != current_day or month != current_month or year != current_year %}
-                <button type="button" class="col-2 btn btn-primary" title="{{ current_day }} {{ current_month_name }} {{ current_year }} " onclick="window.location='/calendar/week/'">Сегодня</button>
+                <button type="button" class="col-2 btn btn-primary" style="max-width: 270px;" title="{{ current_day }} {{ current_month_name }} {{ current_year }} " onclick="window.location='/calendar/week/'">Сегодня</button>
             {% endif %}
 
         <div class="col-1 select_calendar">
@@ -81,13 +81,15 @@
 
                                 <span class="daynum"> {{ week_days[num_day] }} {{ num_hour }}:00 </span>
                                 <br>
-                                <button class="text-truncate" style="max-width: 100px;" type="submit" name="smit" onclick="window.location='/calendar/event/{{event[3]}}/{{event[4]}}/{{event[5]}}/{{event[6]}}/{{event[7]}}'">{{event[2]}}</button>
+                                <button class="fw-light col-12 border border-warning bg-light text-truncate text-start" style="max-width: 100px;" type="submit" name="smit" onclick="window.location='/calendar/event/{{event[3]}}/{{event[4]}}/{{event[5]}}/{{event[6]}}/{{event[7]}}'">{{event[2]}}</button>
 
                                 <!-- <span href="/calendar/week_days[num_day]/view" class="text">{{ event[2] }}</span> -->
                             </div>
                         {%else%}
                             <div class="col p-3 border bg-light">
                                 <span class="daynum"> {{ week_days[num_day] }} {{ num_hour }}:00 </span>
+                                <br>
+                                <button class="fw-light col-12 border border-light bg-light text-start" type="submit" name="smit" onclick="window.location='/calendar/day/{{ day }}/{{ month }}/{{ year }}/{{ num_hour }}/add'">Добавить</button>
                             </div>
                         {% endfor %}
                     {% endfor %}
