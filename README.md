@@ -6,7 +6,8 @@ Miro: https://miro.com/app/board/uXjVKaAOaKQ=/
 Notion: https://long-hardcover-9d9.notion.site/2af72bc8d9b04e06bd823c49f8fd53a4?v=737c6bbd19c9460a8414b938b9e996d6
 
 Скриншоты, подтверждающие работоспособность:
-
+<img width="640" alt="image" src="https://github.com/nuledro4/52/blob/main/pictures/month.png">
+<img width="640" alt="image" src="https://github.com/nuledro4/52/blob/main/pictures/day.png">
 
 Цель: Разработать веб-календарь с интуитивным интерфейсом, который будет легок и удобен в использовании для юзеров с различным уровнем технической подготовки.  
 
